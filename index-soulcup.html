@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soulcup Coffee | Premium To-Go Coffee Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5F4B32;
+            --secondary: #E6D7B8;
+            --accent: #D4AF37;
+            --dark: #1A1A1A;
+            --light: #F9F9F9;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: var(--light);
+            border: none;
+            border-radius: 2px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background-color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+
+        .text-highlight {
+            color: var(--accent);
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: var(--transition);
+        }
+
+        .scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Lora', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .scrolled .logo {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 40px;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .scrolled .nav-links a {
+            color: var(--dark);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('./media/Cappuccino\ and\ Espresso\ on\ Concrete.png') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: var(--light);
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* Our Story */
+        .our-story {
+            background-color: var(--light);
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .story-text h2 {
+            margin-bottom: 20px;
+        }
+
+        .story-img {
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .story-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .story-img:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Our Concepts */
+        .our-concepts {
+            background-color: #F5F5F5;
+        }
+
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .concept-card {
+            background-color: var(--light);
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .concept-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .concept-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .concept-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        /* Our Stores */
+        .our-stores {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://placehold.co/1920x1080') no-repeat center center/cover;
+            color: var(--light);
+            text-align: center;
+        }
+
+        .stores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .store-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .store-card:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .store-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .store-card p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        /* Our Products */
+        .our-products {
+            background-color: var(--light);
+        }
+
+        .products-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: var(--dark);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn.active {
+            border-bottom: 2px solid var(--accent);
+            color: var(--primary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: #FFF;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .product-info p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .product-price {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        /* Our Value */
+        .our-value {
+            background-color: #F5F5F5;
+        }
+
+        .value-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .value-img {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .value-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .value-content h2 {
+            margin-bottom: 20px;
+        }
+
+        .value-item {
+            margin-bottom: 30px;
+        }
+
+        .value-item h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        /* Our Purpose */
+        .our-purpose {
+            background-color: var(--primary);
+            color: var(--light);
+            text-align: center;
+        }
+
+        .our-purpose h2 {
+            margin-bottom: 30px;
+            color: var(--light);
+        }
+
+        .our-purpose p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Our Target */
+        .our-target {
+            background-color: var(--light);
+        }
+
+        .target-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .target-content h2 {
+            margin-bottom: 20px;
+        }
+
+        .target-list {
+            list-style: none;
+        }
+
+        .target-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .target-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background-color: var(--accent);
+            border-radius: 50%;
+        }
+
+        .target-img {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .target-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Our Close Statements */
+        .close-statements {
+            background-color: #1A1A1A;
+            color: var(--light);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .close-statements h2 {
+            margin-bottom: 30px;
+            color: var(--light);
+        }
+
+        .close-statements p {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: var(--light);
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+
+        .footer-col a:hover {
+            opacity: 1;
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+                color: var(--light);
+                font-size: 1.5rem;
+            }
+
+            .scrolled .mobile-menu-btn {
+                color: var(--primary);
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: var(--light);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 20px 0;
+            }
+
+            .nav-links a {
+                color: var(--dark);
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .story-content,
+            .value-container,
+            .target-container {
+                grid-template-columns: 1fr;
+            }
+
+            .story-img,
+            .value-img,
+            .target-img {
+                height: 350px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Mouse Scroll Animation */
+        .mouse {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--light);
+            border-radius: 15px;
+        }
+
+        .scrolled .mouse {
+            border-color: var(--dark);
+        }
+
+        .mouse-wheel {
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            width: 4px;
+            height: 10px;
+            background-color: var(--light);
+            border-radius: 2px;
+            transform: translateX(-50%);
+            animation: scroll 2s infinite;
+        }
+
+        .scrolled .mouse-wheel {
+            background-color: var(--dark);
+        }
+
+        @keyframes scroll {
+            0% {
+                opacity: 1;
+                transform: translateY(0) translateX(-50%);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(20px) translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Soulcup Coffee</a>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#our-story">Our Story</a></li>
+                    <li><a href="#our-concepts">Our Concepts</a></li>
+                    <li><a href="#our-stores">Our Stores</a></li>
+                    <li><a href="#our-products">Our Products</a></li>
+                    <li><a href="#our-value">Our Value</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
+                <h1>Elevate Your Coffee Experience</h1>
+                <p>Soulcup Coffee brings premium specialty coffee in a convenient to-go format, designed for the modern urban lifestyle without compromising on quality or experience.</p>
+                <a href="#our-story" class="btn btn-accent">Discover Our Story</a>
+            </div>
+        </div>
+        <div class="mouse">
+            <div class="mouse-wheel"></div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section id="our-story" class="our-story">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Story</h2>
+            <div class="story-content">
+                <div class="story-text" data-aos="fade-right">
+                    <h3>Born from Passion,<br>Perfected with Purpose</h3>
+                    <p>Soulcup Coffee was founded in 2021 by a team of coffee enthusiasts who believed that great coffee shouldn't be confined to sit-down cafes. We saw the growing need for high-quality coffee that fits into people's fast-paced lives.</p>
+                    <p>Our founders traveled across coffee-growing regions worldwide, sourcing the finest beans and learning traditional brewing techniques. The result is a carefully curated selection of premium coffee blends that maintain exceptional quality even in our convenient to-go format.</p>
+                    <p>Every Soulcup beverage is crafted with the same attention to detail you'd expect from a specialty coffee shop, packaged thoughtfully to preserve flavor and aroma until the last sip.</p>
+                </div>
+                <div class="story-img" data-aos="fade-left">
+                    <img src="https://placehold.co/800x1000" alt="Coffee beans being hand-selected by our expert team in a sunlit warehouse with rustic wood surfaces">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Concepts -->
+    <section id="our-concepts" class="our-concepts">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Concepts</h2>
+            <div class="concepts-grid">
+                <div class="concept-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="concept-icon">
+                        <i class="fas fa-mug-hot"></i>
+                    </div>
+                    <h3>Premium Quality</h3>
+                    <p>We source single-origin beans from ethical producers and roast them in small batches to ensure peak freshness and flavor complexity in every cup.</p>
+                </div>
+                <div class="concept-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="concept-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Convenience</h3>
+                    <p>Designed for urban lifestyles, our streamlined stores minimize wait times without sacrificing the premium experience you expect.</p>
+                </div>
+                <div class="concept-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="concept-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustainability</h3>
+                    <p>We use compostable packaging and implement zero-waste practices throughout our operations to minimize environmental impact.</p>
+                </div>
+                <div class="concept-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="concept-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community</h3>
+                    <p>Each Soulcup location serves as a neighborhood hub where coffee lovers connect and new relationships begin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Stores -->
+    <section id="our-stores" class="our-stores">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Stores</h2>
+            <p class="subtitle" data-aos="fade-up" data-aos-delay="100">Experience the Soulcup difference at our carefully designed locations</p>
+            <div class="stores-grid">
+                <div class="store-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3>The Flagship</h3>
+                    <p>Our original downtown location features an open layout where customers can observe the roasting process while they wait.</p>
+                    <p>123 Brew Street, Central District<br>Open Daily: 6AM - 8PM</p>
+                </div>
+                <div class="store-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3>The Urban Oasis</h3>
+                    <p>Located in the financial district, this sleek design serves busy professionals with speedy service and premium amenities.</p>
+                    <p>456 Espresso Lane, Business Quarter<br>Weekdays: 5:30AM - 6PM</p>
+                </div>
+                <div class="store-card" data-aos="fade-up" data-aos-delay="400">
+                    <h3>The Garden Spot</h3>
+                    <p>Set near the city park, this location features outdoor seating surrounded by lush greenery and natural elements.</p>
+                    <p>789 Roast Avenue, Greenbelt Area<br>Open Daily: 7AM - 7PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Products -->
+    <section id="our-products" class="our-products">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Products</h2>
+            <div class="products-tabs">
+                <button class="tab-btn active" data-category="signature">Signature Drinks</button>
+                <button class="tab-btn" data-category="brews">Single Origin Brews</button>
+                <button class="tab-btn" data-category="beans">Coffee Beans</button>
+                <button class="tab-btn" data-category="merch">Merchandise</button>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-category="signature" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-img">
+                        <img src="https://placehold.co/600x400" alt="Soulcup Black coffee in our signature black cup with gold logo against dark marble background">
+                    </div>
+                    <div class="product-info">
+                        <h3>Soulcup Black</h3>
+                        <p>Our signature espresso blend with notes of dark chocolate and cherry, balanced with a caramel sweetness.</p>
+                        <div class="product-price">$4.50</div>
+                    </div>
+                </div>
+                <div class="product-card" data-category="signature" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-img">
+                        <img src="https://placehold.co/600x400" alt="Golden Latte with milk foam art in a clear glass cup on wooden surface">
+                    </div>
+                    <div class="product-info">
+                        <h3>Golden Latte</h3>
+                        <p>Espresso with oat milk infused with turmeric and honey, finished with edible gold leaf.</p>
+                        <div class="product-price">$6.00</div>
+                    </div>
+                </div>
+                <div class="product-card" data-category="brews" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-img">
+                        <img src="https://placehold.co/600x400" alt="Ethiopian Yirgacheffe coffee in ceramic cup with coffee beans scattered around">
+                    </div>
+                    <div class="product-info">
+                        <h3>Ethiopian Yirgacheffe</h3>
+                        <p>Floral and tea-like with distinct bergamot and jasmine notes, light-bodied with vibrant acidity.</p>
+                        <div class="product-price">$5.00</div>
+                    </div>
+                </div>
+                <div class="product-card" data-category="brews" data-aos="fade-up" data-aos-delay="400">
+                    <div class="product-img">
+                        <img src="https://placehold.co/600x400" alt="Colombian Supremo pour over coffee brewing with glass carafe on scale">
+                    </div>
+                    <div class="product-info">
+                        <h3>Colombian Supremo</h3>
+                        <p>Nutty and chocolatey with caramel sweetness and a clean, crisp finish.</p>
+                        <div class="product-price">$5.00</div>
+                    </div>
+                </div>
+                <div class="product-card" data-category="beans" data-aos="fade-up" data-aos-delay="500">
+                    <div class="product-img">
+                        <img src="https://placehold.co/600x400" alt="Soulcup Signature Blend whole beans in our gold-lined black bag with backdrop of coffee plants">
+                    </div>
+                    <div class="product-info">
+                        <h3>Signature Blend (250g)</h3>
+                        <p>Our proprietary mix of South American and African beans for balanced citrus and cacao notes.</p>
+                        <div class="product-price">$14.00</div>
+                    </div>
+                </div>
+                <div class="product-card" data-category="beans" data-aos="fade-up" data-aos-delay="600">
+                    <div class="product-img">
+                        <img src="https://placehold.co/600x400" alt="Decaf beans in glass jar with measuring scoop and French press in earth-toned kitchen setting">
+                    </div>
+                    <div class="product-info">
+                        <h3>Midnight Decaf (250g)</h3>
+                        <p>Swiss water processed decaf with notes of roasted almonds and caramelized sugar.</p>
+                        <div class="product-price">$16.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Value -->
+    <section id="our-value" class="our-value">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Value</h2>
+            <div class="value-container">
+                <div class="value-content" data-aos="fade-right">
+                    <div class="value-item" data-aos="fade-right" data-aos-delay="100">
+                        <h3>Quality Above All</h3>
+                        <p>We maintain direct relationships with farmers to ensure fair compensation and superior bean quality. Our roasting process is meticulously controlled to highlight each bean's unique characteristics.</p>
+                    </div>
+                    <div class="value-item" data-aos="fade-right" data-aos-delay="200">
+                        <h3>Innovation in Convenience</h3>
+                        <p>Our proprietary brewing techniques and packaging solutions allow us to deliver cafe-quality coffee in portable formats without compromising taste or experience.</p>
+                    </div>
+                    <div class="value-item" data-aos="fade-right" data-aos-delay="300">
+                        <h3>Design with Purpose</h3>
+                        <p>Every element – from our minimalist store design to our compostable cups – is thoughtfully designed to enhance your experience while minimizing environmental impact.</p>
+                    </div>
+                </div>
+                <div class="value-img" data-aos="fade-left" data-aos-delay="400">
+                    <img src="https://placehold.co/800x1000" alt="Barista carefully crafting coffee drinks in our modern shop featuring marble counters and warm wood accents">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Purpose -->
+    <section class="our-purpose" id="our-purpose">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h2>Our Purpose</h2>
+                <p>At Soulcup Coffee, we believe that every interaction matters. Our purpose is to bring exceptional coffee experiences into people's daily routines, transforming ordinary moments into something special.</p>
+                <p>Whether you're fueling your morning commute or taking an afternoon break, we want Soulcup to be a positive highlight of your day.</p>
+                <a href="#our-stores" class="btn btn-accent">Find Your Soulcup</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Target -->
+    <section class="our-target" id="our-target">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Our Target</h2>
+            <div class="target-container">
+                <div class="target-img" data-aos="fade-right">
+                    <img src="https://placehold.co/800x1000" alt="Diverse group of young professionals enjoying Soulcup coffee in urban settings">
+                </div>
+                <div class="target-content" data-aos="fade-left">
+                    <h3>For Those Who Appreciate Quality &amp; Convenience</h3>
+                    <ul class="target-list">
+                        <li>Urban professionals who value premium experiences but are short on time</li>
+                        <li>Millennials and Gen Z consumers who prioritize authenticity and ethical sourcing</li>
+                        <li>Connoisseurs who appreciate specialty coffee but want it accessible</li>
+                        <li>Digital nomads seeking quality workspaces with excellent coffee</li>
+                        <li>Sustainability-conscious consumers who want guilt-free indulgence</li>
+                        <li>Those who see coffee as more than a beverage—it's a lifestyle</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Close Statements -->
+    <section class="close-statements" id="our-close-statements">
+        <div class="container">
+            <div data-aos="fade-up">
+                <h2>Coffee That Moves With You</h2>
+                <p>Soulcup Coffee represents the harmony of uncompromising quality and modern convenience. We invite you to experience specialty coffee designed for how you actually live—where excellence isn't confined to sit-down cafes but available whenever you need it.</p>
+                <p>Join us in redefining what great coffee can be.</p>
+                <a href="#" class="btn">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Soulcup Coffee</h3>
+                    <p>Premium to-go coffee experiences for the modern lifestyle.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Stores</h3>
+                    <ul>
+                        <li><a href="#">The Flagship</a></li>
+                        <li><a href="#">The Urban Oasis</a></li>
+                        <li><a href="#">The Garden Spot</a></li>
+                        <li><a href="#">Coming Soon</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:hello@soulcup.co">hello@soulcup.co</a></li>
+                        <li><a href="tel:+18005551234">(800) 555-1234</a></li>
+                        <li><a href="#">Wholesale Inquiries</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Soulcup Coffee. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Font Awesome for icons
+        const faScript = document.createElement('script');
+        faScript.src = 'https://kit.fontawesome.com/a076d05399.js';
+        document.head.appendChild(faScript);
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Navigation Link Click Handler
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll Header Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Initialize AOS Animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Product Tab Functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const category = btn.getAttribute('data-category');
+                
+                // Show/hide products based on category
+                productCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Parallax Effect
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.story-img img, .value-img img, .target-img img');
+            
+            parallaxElements.forEach(element => {
+                element.style.transform = `translateY(${scrollPosition * 0.1}px)`;
+            });
+        });
+
+        // Hover Effects
+        const cards = document.querySelectorAll('.concept-card, .store-card, .product-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transition = 'transform 0.4s ease, box-shadow 0.4s ease';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transition = 'transform 0.4s ease, box-shadow 0.4s ease';
+            });
+        });
+    </script>
+</body>
+</html>
